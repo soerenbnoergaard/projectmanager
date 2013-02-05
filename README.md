@@ -24,8 +24,11 @@ You can add more templates by adding folders to the `folders` directive, and add
 ## Screenshots
 
 ![Main window](img/main.png)
+
 ![Filename](img/filename.png)
+
 ![Title](img/title.png)
+
 ![Author](img/author.png)
 
 Enjoy!
