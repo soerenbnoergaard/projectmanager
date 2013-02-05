@@ -21,4 +21,11 @@ You can now add new projects by right-clicking in any folder in Thunar.
 
 You can add more templates by adding folders to the `folders` directive, and adding lines to `projectmanager` - the syntax should be quite straight-foreward.
 
+## Screenshots
+
+![Main window](img/main.png)
+![Filename](img/filename.png)
+![Title](img/title.png)
+![Author](img/author.png)
+
 Enjoy!
