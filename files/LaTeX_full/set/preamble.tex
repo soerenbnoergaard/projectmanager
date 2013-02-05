@@ -1,0 +1,72 @@
+\documentclass[article,12pt]{memoir}
+
+% Language settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage{icomma}
+
+% Font settings
+\usepackage{amsmath,amsfonts,amssymb,courier,tikz,listings,url,commath}
+\usepackage[per-mode=fraction,unit-color = black]{siunitx}
+\usetikzlibrary{shapes,patterns}
+\sisetup{output-decimal-marker = {,}}
+\urlstyle{sf}
+\usepackage[section]{placeins}
+\lstset{
+  breaklines=true, 
+  language=C++, 
+  basicstyle=\footnotesize\ttfamily, 
+  frame=single,
+  columns=flexible, 
+  numbers=left, 
+  numberstyle=\sffamily, 
+  literate={ø}{{\o}}1 {æ}{{\ae}}1{å}{{\aa}}1,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false
+}
+\usepackage{hyperref}
+\hypersetup{%
+  pdfpagelabels=true,%
+  plainpages=false,%
+  pdfauthor={Author(s)},%
+  pdftitle={Title},%
+  pdfsubject={Subject},%
+  bookmarksnumbered=true,%
+  colorlinks,%
+  citecolor=black,%
+  filecolor=black,%
+  linkcolor=black,%
+  urlcolor=black,%
+  pdfstartview=FitH%
+}
+\usepackage{memhfixc}
+
+% Fixme
+\usepackage[footnote,draft,danish,silent,nomargin]{fixme}
+
+% Itemize -- squeeze space
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone\firmlist}{\temptwo}
+
+% Enumerate -- squeeze space
+\let\tempthree\enumerate
+\let\tempfour\endenumerate
+\renewenvironment{enumerate}{\tempthree\firmlist}{\tempfour}
+
+% Figures -- improve placement
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.85}
+
+% Margins
+\setlrmarginsandblock{1.7cm}{1.7cm}{*}
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
+\setlength{\evensidemargin}{\oddsidemargin}
+\checkandfixthelayout
+
+% Numbering and debth
+\setsecnumdepth{section}
+\setcounter{tocdepth}{2}

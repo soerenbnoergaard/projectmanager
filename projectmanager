@@ -1,0 +1,53 @@
+#!/bin/bash
+# Change this line to where the project files are located.
+filesdir="/home/soren/git/projectManager/files"
+
+choice=$(zenity  --list  --text "Type of project" --radiolist  --column "Pick" --column "Project" \
+  TRUE "AVR C-project" \
+  FALSE "LaTeX Single file" \
+  FALSE "LaTeX Full" \
+  FALSE "LaTeX Beamer" \
+  FALSE "LaTeX TikZ standalone"\
+  )
+
+case "$choice" in 
+  "AVR C-project") 
+    cp $filesdir/AVR_c-project/* `pwd` -r
+    projName=$(zenity --entry --text "Project name (single word)")
+    uC=$(zenity --entry --text "Microcontroller (avrdude style)")
+    sed -i "s/<+PROJECTNAME+>/$projName/g" Makefile
+    sed -i "s/<+MICROCONTROLLER+>/$uC/g" Makefile
+    ;;
+  "LaTeX Single file")
+    cp $filesdir/LaTeX_single-file/* `pwd` -r
+    fileName=$(zenity --entry --text "File name (single word)")
+    projName=$(zenity --entry --text "Title")
+    authorName=$(zenity --entry --text "Author")
+    sed -i "s/<+PROJECTNAME+>/$projName/g" filename.tex
+    sed -i "s/<+AUTHOR+>/$authorName/g" filename.tex
+    mv filename.tex $fileName
+    ;;
+  "LaTeX Full")
+    cp $filesdir/LaTeX_full/* `pwd` -r
+    projName=$(zenity --entry --text "Project name (title)")
+    authorName=$(zenity --entry --text "Author")
+    docType=$(zenity --entry --text "Document type (project report etc.)")
+    sed -i "s/<+PROJECTNAME+>/$projName/g" sec/etc/frontpage.tex
+    sed -i "s/<+AUTHOR+>/$authorName/g" sec/etc/frontpage.tex
+    sed -i "s/<+AUTHOR+>/$docType/g" sec/etc/frontpage.tex
+    ;;
+  "LaTeX Beamer")
+    cp $filesdir/LaTeX_beamer/* `pwd` -r
+    fileName=$(zenity --entry --text "File name (single word)")
+    projName=$(zenity --entry --text "Presentation title")
+    authorName=$(zenity --entry --text "Author")
+    sed -i "s/<+PROJECTNAME+>/$projName/g" filename.tex
+    sed -i "s/<+AUTHOR+>/$authorName/g" filename.tex
+    mv filename.tex $fileName
+    ;;
+  "LaTeX TikZ standalone")
+    cp $filesdir/LaTeX_TikZ-standalone/* `pwd` -r
+    fileName=$(zenity --entry --text "File name (single word)")
+    mv filename.tex $fileName
+    ;;
+esac
