@@ -3,8 +3,8 @@
 filesdir="/home/soren/git/projectManager/files"
 
 choice=$(zenity  --list  --text "Type of project" --radiolist  --column "Pick" --column "Project" \
-  TRUE "AVR C-project" \
-  FALSE "LaTeX Single file" \
+  FALSE "AVR C-project" \
+  TRUE "LaTeX Single file" \
   FALSE "LaTeX Full" \
   FALSE "LaTeX Beamer" \
   FALSE "LaTeX TikZ standalone"\
