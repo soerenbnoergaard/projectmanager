@@ -26,6 +26,7 @@ case "$choice" in
     sed -i "s/<+PROJECTNAME+>/$projName/g" filename.tex
     sed -i "s/<+AUTHOR+>/$authorName/g" filename.tex
     mv filename.tex $fileName
+    rm -f img/.gitignore
     ;;
   "LaTeX Full")
     cp $filesdir/LaTeX_full/* `pwd` -r
@@ -35,6 +36,7 @@ case "$choice" in
     sed -i "s/<+PROJECTNAME+>/$projName/g" sec/etc/frontpage.tex
     sed -i "s/<+AUTHOR+>/$authorName/g" sec/etc/frontpage.tex
     sed -i "s/<+AUTHOR+>/$docType/g" sec/etc/frontpage.tex
+    rm -f img/.gitignore
     ;;
   "LaTeX Beamer")
     cp $filesdir/LaTeX_beamer/* `pwd` -r
@@ -44,6 +46,7 @@ case "$choice" in
     sed -i "s/<+PROJECTNAME+>/$projName/g" filename.tex
     sed -i "s/<+AUTHOR+>/$authorName/g" filename.tex
     mv filename.tex $fileName
+    rm -f img/.gitignore
     ;;
   "LaTeX TikZ standalone")
     cp $filesdir/LaTeX_TikZ-standalone/* `pwd` -r
