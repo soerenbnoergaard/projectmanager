@@ -8,6 +8,7 @@ choice=$(zenity  --list  --text "Type of project" --radiolist  --column "Pick" -
   FALSE "LaTeX Full" \
   FALSE "LaTeX Beamer" \
   FALSE "LaTeX TikZ standalone"\
+  FALSE "VHDL Makefile"\
   )
 
 case "$choice" in 
@@ -52,5 +53,12 @@ case "$choice" in
     cp $filesdir/LaTeX_TikZ-standalone/* `pwd` -r
     fileName=$(zenity --entry --text "File name (single word)")
     mv filename.tex $fileName
+    ;;
+  "VHDL Makefile")
+    cp $filesdir/VHDL_Makefile/* `pwd` -r
+    vhdName=$(zenity --entry --text "Project VHDL file (without .vhd)")
+    tbName=$(zenity --entry --text "Testbench VHDL file (without .vhd)")
+    sed -i "s/<+VHDFILE+>/$vhdName/g" Makefile
+    sed -i "s/<+TBFILE+>/$tbName/g" Makefile
     ;;
 esac
