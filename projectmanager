@@ -13,14 +13,14 @@ choice=$(zenity  --list  --text "Type of project" --radiolist  --column "Pick" -
 
 case "$choice" in 
   "AVR C-project") 
-    cp $filesdir/AVR_c-project/* `pwd` -r
+    cp $filesdir/AVR_c-project/* "`pwd`" -r
     projName=$(zenity --entry --text "Project name (single word)")
     uC=$(zenity --entry --text "Microcontroller (avrdude style)")
     sed -i "s/<+PROJECTNAME+>/$projName/g" Makefile
     sed -i "s/<+MICROCONTROLLER+>/$uC/g" Makefile
     ;;
   "LaTeX Single file")
-    cp $filesdir/LaTeX_single-file/* `pwd` -r
+    cp $filesdir/LaTeX_single-file/* "`pwd`" -r
     fileName=$(zenity --entry --text "File name (single word)")
     projName=$(zenity --entry --text "Title")
     authorName=$(zenity --entry --text "Author")
@@ -30,7 +30,7 @@ case "$choice" in
     rm -f img/.gitignore
     ;;
   "LaTeX Full")
-    cp $filesdir/LaTeX_full/* `pwd` -r
+    cp $filesdir/LaTeX_full/* "`pwd`" -r
     projName=$(zenity --entry --text "Project name (title)")
     authorName=$(zenity --entry --text "Author")
     docType=$(zenity --entry --text "Document type (project report etc.)")
@@ -40,7 +40,7 @@ case "$choice" in
     rm -f img/.gitignore
     ;;
   "LaTeX Beamer")
-    cp $filesdir/LaTeX_beamer/* `pwd` -r
+    cp $filesdir/LaTeX_beamer/* "`pwd`" -r
     fileName=$(zenity --entry --text "File name (single word)")
     projName=$(zenity --entry --text "Presentation title")
     authorName=$(zenity --entry --text "Author")
@@ -50,12 +50,12 @@ case "$choice" in
     rm -f img/.gitignore
     ;;
   "LaTeX TikZ standalone")
-    cp $filesdir/LaTeX_TikZ-standalone/* `pwd` -r
+    cp $filesdir/LaTeX_TikZ-standalone/* "`pwd`" -r
     fileName=$(zenity --entry --text "File name (single word)")
     mv filename.tex $fileName
     ;;
   "VHDL Makefile")
-    cp $filesdir/VHDL_Makefile/* `pwd` -r
+    cp $filesdir/VHDL_Makefile/* "`pwd`" -r
     vhdName=$(zenity --entry --text "Project VHDL file (without .vhd)")
     tbName=$(zenity --entry --text "Testbench VHDL file (without .vhd)")
     sed -i "s/<+VHDFILE+>/$vhdName/g" Makefile
