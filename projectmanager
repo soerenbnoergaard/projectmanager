@@ -1,6 +1,6 @@
 #!/bin/bash
 # Change this line to where the project files are located.
-filesdir="/home/soren/git/projectManager/files"
+filesdir="/home/soren/git/projectmanager/files"
 
 choice=$(zenity  --list  --text "Type of project" --radiolist  --column "Pick" --column "Project" \
   FALSE "AVR C-project" \
